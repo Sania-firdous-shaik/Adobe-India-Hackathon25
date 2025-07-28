@@ -1,1 +1,172 @@
 
+# **Challenge 1a: PDF Processing Solution**
+
+## **Challenge Overview**
+
+Welcome to **Challenge 1a** of the Adobe India Hackathon 2025! The task is to develop a **PDF processing solution** that efficiently extracts structured data from PDF documents, converts it to JSON format, and processes the data inside a Docker container. Your solution should adhere to the performance constraints and work seamlessly on the given resources.
+
+### **Submission Guidelines**
+
+To submit your solution, ensure the following:
+
+* **GitHub Project**: A complete and working code repository with your solution.
+* **Dockerfile**: Include a functional Dockerfile in the root directory.
+* **README.md**: Provide clear documentation covering how your solution works, the libraries used, and the models involved.
+
+### **Commands**
+
+#### Build Command
+
+To build the Docker image, run:
+
+```bash
+docker build --platform linux/amd64 -t <reponame.someidentifier> .
+```
+
+#### Run Command
+
+To run the Docker container with your PDF processing solution:
+
+```bash
+docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output/repoidentifier/:/app/output --network none <reponame.someidentifier>
+```
+
+### **Key Constraints**
+
+* **Execution Time**: Must process a 50-page PDF in **≤ 10 seconds**.
+* **Model Size**: If you're using machine learning models, their size should not exceed **200MB**.
+* **No Internet Access**: The solution should not rely on network access during execution.
+* **Resources**: The solution should run on **8 CPUs** and **16GB RAM** (CPU-based execution on AMD64 architecture).
+* **Input Directory**: PDFs should be processed from the `/app/input` directory with read-only access.
+
+### **Output Details**
+
+* **File Format**: Each PDF should generate a JSON file, named according to the PDF file (e.g., `filename.json` for `filename.pdf`).
+* **Cross-Platform**: Ensure the solution works for both simple and complex PDFs.
+
+### **Sample Solution Structure**
+
+Here’s a sample file structure for your solution:
+
+```
+Challenge_1a/
+├── sample_dataset/
+│   ├── outputs/         # Contains output JSON files
+│   ├── pdfs/            # Contains input PDF files
+│   └── schema/          # Output schema definitions
+│       └── output_schema.json
+├── Dockerfile           # Docker container configuration
+├── process_pdfs.py      # Script to process PDFs
+└── README.md            # Documentation file
+```
+
+### **Sample Implementation**
+
+#### Current Sample Code (`process_pdfs.py`)
+
+The current implementation is a **basic sample** that demonstrates:
+
+* Scanning PDF files from the input directory.
+* Generating dummy JSON data.
+* Saving the output in the required format.
+
+This is a placeholder, and a complete solution would involve:
+
+* Extracting actual text from PDFs.
+* Parsing document structure (e.g., headings, paragraphs).
+* Generating meaningful JSON outputs based on content analysis.
+
+Here’s an example of the placeholder script (`process_pdfs.py`):
+
+```python
+from pathlib import Path
+import json
+
+def process_pdfs():
+    input_dir = Path("/app/input")
+    output_dir = Path("/app/output")
+    
+    # Process all PDF files in the input directory
+    for pdf_file in input_dir.glob("*.pdf"):
+        output_file = output_dir / f"{pdf_file.stem}.json"
+        
+        # Generate dummy JSON data (for now)
+        json_data = {
+            "filename": pdf_file.stem,
+            "content": "This is a placeholder output."
+        }
+        
+        # Write the dummy JSON data to the output file
+        with open(output_file, "w") as json_output:
+            json.dump(json_data, json_output, indent=4)
+```
+
+#### Sample Dockerfile
+
+This Dockerfile ensures the solution runs smoothly in a container:
+
+```dockerfile
+FROM --platform=linux/amd64 python:3.10
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy the Python script to the container
+COPY process_pdfs.py .
+
+# Command to run the PDF processing script
+CMD ["python", "process_pdfs.py"]
+```
+
+### **Expected Output Format**
+
+The JSON output for each PDF should follow the structure defined in `output_schema.json`. Ensure that your generated files match this schema.
+
+#### Example JSON Output:
+
+```json
+{
+  "filename": "example",
+  "content": [
+    {
+      "section": "Introduction",
+      "text": "This is the introduction section of the document."
+    },
+    {
+      "section": "Conclusion",
+      "text": "This is the conclusion of the document."
+    }
+  ]
+}
+```
+
+### **Implementation Guidelines**
+
+#### **Performance Optimizations**
+
+* **Memory Management**: Efficient handling of large PDF files.
+* **Processing Speed**: Ensure the solution completes within **10 seconds** for a 50-page PDF.
+* **Resource Constraints**: Ensure that the solution remains within **16GB RAM** and utilizes **8 CPUs** efficiently.
+
+#### **Testing Strategy**
+
+* **Simple PDFs**: Test your solution with basic PDFs (e.g., text-based).
+* **Complex PDFs**: Include multi-column, image-heavy, and table-based PDFs.
+* **Large PDFs**: Ensure that the solution can process PDFs with up to **50 pages** within the time constraint.
+
+### **Local Testing**
+
+To test your solution locally:
+
+1. **Build the Docker Image**:
+
+   ```bash
+   docker build --platform linux/amd64 -t pdf-processor .
+   ```
+
+2. **Run the Solution** with the sample PDFs:
+
+   ```bash
+   docker run --rm -v $(pwd)/sample_dataset/pdfs:/app/input:ro -v $(pwd)/sample_dataset/outputs:/app/output --network none pdf-processor
+   ```
+
