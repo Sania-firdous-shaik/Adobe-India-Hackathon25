@@ -1,7 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
-
-# README.md
-
 ## Connecting the Dots Challenge – Round 1A: Document Structure Extraction
 
 Welcome to our solution for Round 1A of the Adobe "Connecting the Dots" Challenge!
@@ -49,9 +45,6 @@ Our solution consists of the following steps:
 - `main.py` — Entry point for processing.
 - `Dockerfile` — Containerizes the solution as per requirements.
 - `requirements.txt` — Python dependencies.
-- `utils/` — Supporting functions for extraction, heading detection, JSON generation.
-- `sample.pdf` / `sample.json` — Example input/output (if provided).
-
 
 ## How to Build \& Run
 
@@ -105,17 +98,3 @@ docker run --rm \
     - Ensure Python 3.8+ and all dependencies (`pip install -r requirements.txt`) are available.
     - Run `python main.py /app/input /app/output`
 - For questions, please refer to our `approach_explanation.md` in the repo.
-
-
-## Contact / Acknowledgments
-
-- Team Name: [Your Team Name]
-- Members: [List Names or Handles]
-- For queries, reach out at: [Your contact info or leave blank]
-
-**Good luck, and happy building!**
-
-<div style="text-align: center">⁂</div>
-
-[^1]: content-1.pdf
-
