@@ -48,4 +48,3 @@ In today's world of abundant documents, providing meaningful context to content 
 - Do not hardcode inputs or outputs.
 - Ensure no network calls are made during solution execution.
 
-Good luck with your submission!
