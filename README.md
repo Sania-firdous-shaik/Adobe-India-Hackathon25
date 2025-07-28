@@ -1,8 +1,8 @@
 # Adobe India Hackathon 2025
 ## Welcome to the "Connecting the Dots" Challenge
 
-
-Welcome to the “Connecting the Dots challenge"! This challenge focuses on reinventing the traditional PDF format by creating intelligent and interactive document experiences.hat if every time you opened a PDF, it didn't just sit there—it spoke to you, connected ideas, and narrated meaning across your entire library?
+## overview
+This challenge focuses on reinventing the traditional PDF format by creating intelligent and interactive document experiences.hat if every time you opened a PDF, it didn't just sit there—it spoke to you, connected ideas, and narrated meaning across your entire library?
 
 That's the future we're building — and we want you to help shape it.
 
