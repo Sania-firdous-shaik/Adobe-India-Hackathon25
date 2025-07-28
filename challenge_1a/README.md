@@ -18,7 +18,7 @@ Welcome to our solution for Round 1A of the Adobe "Connecting the Dots" Challeng
 Our solution consists of the following steps:
 
 1. **PDF Parsing:**
-    - Uses [insert main library/tool here, e.g., PyMuPDF/pdfminer/pdfplumber/other] to extract text, bounding box info, and font properties.
+    - Uses PyMuPDF/pdfminer/pdfplumber to extract text, bounding box info, and font properties.
     - For each page, scans lines/blocks for potential headings based on a combination of:
         - Font size/style/boldness
         - Position within the page
