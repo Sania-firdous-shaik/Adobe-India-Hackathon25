@@ -1,4 +1,4 @@
-# Adobe-India-Hackathon25
+
 # Adobe India Hackathon 2025
 
 ## Welcome to the "Connecting the Dots" Challenge
