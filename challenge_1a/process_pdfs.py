@@ -13,7 +13,7 @@ def extract_outline(pdf_path):
         # Use 'outline' instead of deprecated 'outlines'
         outlines = getattr(reader, "outline", None)
         if not outlines:
-            print(f"⚠️ No outline found in {pdf_path}")
+            print(f"No outline found in {pdf_path}")
             return
 
         def parse_outline(items, level=1):
@@ -51,14 +51,14 @@ def extract_outline(pdf_path):
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-        print(f"✅ JSON saved: {output_file}")
+        print(f"JSON saved: {output_file}")
 
     except Exception as e:
-        print(f"❌ Failed to extract outline from {pdf_path}: {e}")
+        print(f"Failed to extract outline from {pdf_path}: {e}")
 
 def main():
     if not os.path.exists(INPUT_DIR):
-        print(f"❌ Input folder not found: {INPUT_DIR}")
+        print(f"Input folder not found: {INPUT_DIR}")
         return
 
     pdf_files = [
@@ -66,14 +66,14 @@ def main():
         if f.lower().endswith(".pdf") and not f.startswith("~$")
     ]
     if not pdf_files:
-        print("⚠️ No PDF files found in input folder.")
+        print("No PDF files found in input folder.")
         return
 
-    print(f"📄 Found {len(pdf_files)} PDF(s) in input folder.\n")
+    print(f"Found {len(pdf_files)} PDF(s) in input folder.\n")
 
     for filename in pdf_files:
         pdf_path = os.path.join(INPUT_DIR, filename)
-        print(f"🔍 Processing: {pdf_path}")
+        print(f"Processing: {pdf_path}")
         extract_outline(pdf_path)
 
 if __name__ == "__main__":
