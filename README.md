@@ -37,6 +37,3 @@ Basic PDF processing with Docker containerization and structured data extraction
 ### [Challenge 1b: Multi-Collection PDF Analysis](./Challenge_1b/README.md)
 Advanced persona-based content analysis across multiple document collections.
 
----
-
-**Note**: Each challenge directory contains detailed documentation and implementation details. Please refer to the individual README files for comprehensive information about each solution.
