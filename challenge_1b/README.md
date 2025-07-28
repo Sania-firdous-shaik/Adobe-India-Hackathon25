@@ -38,5 +38,3 @@ In Round 1B, your task is to develop a system that intelligently analyzes a coll
 - `approach_explanation.md` (300–500 words on methodology).  
 - Simple instructions for building and running the solution.  
 - JSON outputs stored in the expected format for each PDF set in `/app/output`.
-
-**For both README files, update with team-specific build/run instructions and relevant technical details as your implementation advances.**
